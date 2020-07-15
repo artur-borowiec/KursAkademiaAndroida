@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.core
+package pl.arturborowiec.kursakademiaandroida
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

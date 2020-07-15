@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
+private const val GRID_COLUMNS_NUMBER = 2
+
 val appModule = module {
 
     single {
@@ -13,7 +15,7 @@ val appModule = module {
     }
 
     single {
-        GridLayoutManager(androidContext(), 2)
+        GridLayoutManager(androidContext(), GRID_COLUMNS_NUMBER)
     }
 
     single {
