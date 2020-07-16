@@ -10,15 +10,15 @@ private const val GRID_COLUMNS_NUMBER = 2
 
 val appModule = module {
 
-    single {
+    factory {
         LinearLayoutManager(androidContext())
     }
 
-    single {
+    factory {
         GridLayoutManager(androidContext(), GRID_COLUMNS_NUMBER)
     }
 
-    single {
+    factory {
         DividerItemDecoration(androidContext(), LinearLayoutManager.VERTICAL)
     }
 }
