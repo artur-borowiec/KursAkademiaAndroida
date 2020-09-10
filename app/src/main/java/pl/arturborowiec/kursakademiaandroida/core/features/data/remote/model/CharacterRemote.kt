@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName
 import pl.arturborowiec.kursakademiaandroida.core.features.characters.domain.model.Character
 
 data class CharacterRemote(
+    @SerializedName("id") val id: Int,
     @SerializedName("created") val created: String,
     @SerializedName("episode") val episodes: List<String>,
     @SerializedName("gender") val gender: String,
-    @SerializedName("id") val id: Int,
     @SerializedName("image") val image: String,
     @SerializedName("location") val location: CharacterLocationRemote,
     @SerializedName("name") val name: String,
@@ -18,9 +18,9 @@ data class CharacterRemote(
     @SerializedName("url") val url: String
 ) {
     fun toCharacter() = Character(
+        id = id,
         episodes = episodes,
         gender = gender,
-        id = id,
         image = image,
         characterLocation = location.toCharacterLocation(),
         name = name,
