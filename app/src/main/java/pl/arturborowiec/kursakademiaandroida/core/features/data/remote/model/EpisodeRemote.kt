@@ -12,12 +12,12 @@ data class EpisodeRemote(
     @SerializedName("url") val url: String,
     @SerializedName("created") val created: String
 ) {
-    fun toEpisode(episode: Episode) = Episode(
-        id = episode.id,
-        name = episode.name,
-        airDate = episode.airDate,
-        code = episode.code,
-        characters = episode.characters,
-        url = episode.url
+    fun toEpisode() = Episode(
+        id = id,
+        name = name,
+        airDate = airDate,
+        code = code,
+        characters = characters,
+        url = url
     )
 }

@@ -1,6 +1,6 @@
 package pl.arturborowiec.kursakademiaandroida.core.features.characters.domain.model
 
-data class Origin(
+data class CharacterLocation (
     val name: String,
     val url: String
 )
