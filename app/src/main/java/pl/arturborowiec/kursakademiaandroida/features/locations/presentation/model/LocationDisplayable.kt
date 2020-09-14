@@ -1,6 +1,6 @@
-package pl.arturborowiec.kursakademiaandroida.features.location.presentation.model
+package pl.arturborowiec.kursakademiaandroida.features.locations.presentation.model
 
-import pl.arturborowiec.kursakademiaandroida.features.location.domain.model.Location
+import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 
 data class LocationDisplayable(
     val id: Int,

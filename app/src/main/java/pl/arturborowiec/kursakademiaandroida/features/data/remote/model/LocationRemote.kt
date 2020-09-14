@@ -1,7 +1,7 @@
 package pl.arturborowiec.kursakademiaandroida.features.data.remote.model
 
 import com.google.gson.annotations.SerializedName
-import pl.arturborowiec.kursakademiaandroida.features.location.domain.model.Location
+import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 
 data class LocationRemote(
     @SerializedName("id") val id: Int,
