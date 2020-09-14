@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.core.feature.data.db
+package pl.arturborowiec.kursakademiaandroida.features.data.db
 
 import androidx.room.RoomDatabase
 
