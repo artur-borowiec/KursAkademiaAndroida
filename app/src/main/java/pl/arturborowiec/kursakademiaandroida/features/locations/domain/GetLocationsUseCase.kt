@@ -7,5 +7,5 @@ import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Loc
 class GetLocationsUseCase(private val locationsRepository: LocationsRepository) :
     UseCase<List<Location>, Unit>() {
 
-    override suspend fun action(params: Unit): List<Location> = locationsRepository.getLocations()
+    override suspend fun action(params: Unit) = locationsRepository.getLocations()
 }
