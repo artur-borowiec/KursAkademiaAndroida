@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.locations
+package pl.arturborowiec.kursakademiaandroida.features.locations.domain
 
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 

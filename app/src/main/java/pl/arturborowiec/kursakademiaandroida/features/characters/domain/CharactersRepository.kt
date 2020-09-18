@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.characters
+package pl.arturborowiec.kursakademiaandroida.features.characters.domain
 
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Character
 

@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.episodes
+package pl.arturborowiec.kursakademiaandroida.features.episodes.domain
 
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
 
