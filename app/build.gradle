@@ -47,10 +47,12 @@ dependencies {
     implementation lifecycleDependencies.values()
     implementation networkDependencies.values()
     implementation databaseDependencies.values()
-    kapt "androidx.room:room-compiler:2.2.5"
 
-    //test
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    kapt kaptDependencies.values()
+
+    testImplementation testDependencies.values()
+
+    androidTestImplementation androidTestDependencies.values()
+
+    testRuntimeOnly testRuntimeOnlyDependencies.values()
 }

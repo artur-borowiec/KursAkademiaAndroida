@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.location.domain.model
+package pl.arturborowiec.kursakademiaandroida.features.locations.domain.model
 
 data class Location(
     val id: Int,
