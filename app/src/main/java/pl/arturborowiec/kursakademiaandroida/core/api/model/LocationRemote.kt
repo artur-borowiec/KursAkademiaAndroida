@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.data.remote.model
+package pl.arturborowiec.kursakademiaandroida.core.api.model
 
 import com.google.gson.annotations.SerializedName
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location

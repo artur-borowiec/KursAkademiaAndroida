@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.base
+package pl.arturborowiec.kursakademiaandroida.core.base
 
 import kotlinx.coroutines.*
 
