@@ -15,7 +15,7 @@ data class EpisodeCached(
     val url: String
 ) {
 
-    constructor(episode: Episode): this (
+    constructor(episode: Episode) : this(
         episode.id,
         episode.name,
         episode.airDate,
