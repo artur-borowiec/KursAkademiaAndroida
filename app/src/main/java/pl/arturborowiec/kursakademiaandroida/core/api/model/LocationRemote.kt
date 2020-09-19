@@ -5,13 +5,15 @@ import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Loc
 
 data class LocationRemote(
     @SerializedName("id") val id: Int,
-    @SerializedName("created") val created: String,
     @SerializedName("dimension") val dimension: String,
     @SerializedName("name") val name: String,
     @SerializedName("residents") val residents: List<String>,
     @SerializedName("type") val type: String,
-    @SerializedName("url") val url: String
+    @SerializedName("url") val url: String,
+    @SerializedName("created") val created: String
 ) {
+    companion object
+
     fun toLocation() = Location(
         id = id,
         dimension = dimension,
