@@ -11,6 +11,8 @@ data class CharacterLocationCached(
         characterLocation.url
     )
 
+    companion object
+
     fun toCharacterLocation() = CharacterLocation(
         name = locationName,
         url = locationUrl

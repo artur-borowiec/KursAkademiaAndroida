@@ -11,6 +11,8 @@ data class CharacterOriginCached(
         characterOrigin.url
     )
 
+    companion object
+
     fun toCharacterOrigin() = CharacterOrigin(
         name = originName,
         url = originUrl

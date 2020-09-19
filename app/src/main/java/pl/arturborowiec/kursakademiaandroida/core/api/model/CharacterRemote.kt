@@ -5,7 +5,6 @@ import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Ch
 
 data class CharacterRemote(
     @SerializedName("id") val id: Int,
-    @SerializedName("created") val created: String,
     @SerializedName("episode") val episodes: List<String>,
     @SerializedName("gender") val gender: String,
     @SerializedName("image") val image: String,
@@ -15,8 +14,11 @@ data class CharacterRemote(
     @SerializedName("species") val species: String,
     @SerializedName("status") val status: String,
     @SerializedName("type") val type: String,
-    @SerializedName("url") val url: String
+    @SerializedName("url") val url: String,
+    @SerializedName("created") val created: String
 ) {
+    companion object
+
     fun toCharacter() = Character(
         id = id,
         episodes = episodes,
