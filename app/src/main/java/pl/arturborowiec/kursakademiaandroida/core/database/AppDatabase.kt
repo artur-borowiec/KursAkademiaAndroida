@@ -7,11 +7,18 @@ import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.Char
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterCached
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.EpisodeDao
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
+import pl.arturborowiec.kursakademiaandroida.features.locations.data.local.LocationDao
+import pl.arturborowiec.kursakademiaandroida.features.locations.data.local.model.LocationCached
 
-@Database(entities = [EpisodeCached::class, CharacterCached::class], version = 1)
+@Database(
+    entities = [CharacterCached::class, EpisodeCached::class, LocationCached::class],
+    version = 1
+)
+
 @TypeConverters(ListConverter::class)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun episodeDao(): EpisodeDao
     abstract fun characterDao(): CharacterDao
+    abstract fun episodeDao(): EpisodeDao
+    abstract fun locationDao(): LocationDao
 }
