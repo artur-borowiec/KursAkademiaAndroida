@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,6 +19,17 @@ class EpisodeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         observeEpisodes()
         observeUiState()
+        observeMessage()
+    }
+
+    private fun observeMessage() {
+        viewModel.message.observe(this) {
+            showToast(it)
+        }
+    }
+
+    private fun showToast(it: String) {
+        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
     }
 
     private fun observeUiState() {
