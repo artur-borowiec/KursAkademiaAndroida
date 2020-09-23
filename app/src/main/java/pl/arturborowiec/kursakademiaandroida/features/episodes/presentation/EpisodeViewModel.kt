@@ -1,21 +1,14 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
 
-import androidx.lifecycle.*
-import com.hadilq.liveevent.LiveEvent
-import pl.arturborowiec.kursakademiaandroida.core.base.UIState
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
+import pl.arturborowiec.kursakademiaandroida.core.base.BaseViewModel
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisodesUseCase
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
 import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.model.EpisodeDisplayable
 
-class EpisodeViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : ViewModel() {
-
-    private val _message by lazy { LiveEvent<String>() }
-
-    val message: LiveData<String> by lazy { _message }
-
-    private val _uiState by lazy { MutableLiveData<UIState>(UIState.Idle) }
-
-    val uiState: LiveData<UIState> by lazy { _uiState }
+class EpisodeViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : BaseViewModel() {
 
     private val _episodes by lazy {
         MutableLiveData<List<Episode>>()
@@ -35,26 +28,8 @@ class EpisodeViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : Vie
             scope = viewModelScope
         ) { result ->
             setIdleState()
-            result.onSuccess { episodes ->
-                episodeLiveData.value = episodes
-            }
-
-            result.onFailure { throwable ->
-                throwable.message
-                    ?.let { showMessage(it) }
-            }
+            result.onSuccess { episodeLiveData.value = it }
+            result.onFailure { handleFailure(it) }
         }
-    }
-
-    private fun showMessage(message: String) {
-        _message.value = message
-    }
-
-    private fun setIdleState() {
-        _uiState.value = UIState.Idle
-    }
-
-    private fun setPendingState() {
-        _uiState.value = UIState.Pending
     }
 }
