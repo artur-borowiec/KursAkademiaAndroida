@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisodesUseCase
 import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.model.EpisodeDisplayable
 
-class EpisodesViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : ViewModel() {
+class EpisodeViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : ViewModel() {
 
     val episodes by lazy {
         MutableLiveData<List<EpisodeDisplayable>>()
