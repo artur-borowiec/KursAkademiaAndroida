@@ -1,60 +1,37 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
-import pl.arturborowiec.kursakademiaandroida.core.base.UIState
+import pl.arturborowiec.kursakademiaandroida.core.base.BaseFragment
 
-class EpisodeFragment : Fragment() {
+class EpisodeFragment : BaseFragment<EpisodeViewModel>(R.layout.fragment_episode) {
 
-    private val viewModel: EpisodeViewModel by viewModel()
+    override val viewModel: EpisodeViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initViews() {
+        super.initViews()
+        // init all view-related clases
+    }
+
+    override fun initObservers() {
+        super.initObservers()
         observeEpisodes()
-        observeUiState()
-        observeMessage()
     }
 
-    private fun observeMessage() {
-        viewModel.message.observe(this) {
-            showToast(it)
-        }
+    override fun onIdleState() {
+        super.onIdleState()
+        // handle idle state here
     }
 
-    private fun showToast(it: String) {
-        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+    override fun onPendingState() {
+        super.onPendingState()
+        // handle pending state here
     }
-
-    private fun observeUiState() {
-        viewModel.uiState.observe(this) {
-            when (it) {
-                UIState.Idle -> onIdleState()
-                UIState.Pending -> onPendingState()
-            }
-        }
-    }
-
-    private fun onIdleState() {}
-
-    private fun onPendingState() {}
 
     private fun observeEpisodes() {
         viewModel.episodes.observe(this) {
             // TODO: code to display episodes
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_episode, container, false)
     }
 }
