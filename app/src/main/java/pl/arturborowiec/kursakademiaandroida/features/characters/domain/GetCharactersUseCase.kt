@@ -1,6 +1,6 @@
 package pl.arturborowiec.kursakademiaandroida.features.characters.domain
 
-import pl.arturborowiec.kursakademiaandroida.base.UseCase
+import pl.arturborowiec.kursakademiaandroida.core.base.UseCase
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Character
 
 class GetCharactersUseCase(private val charactersRepository: CharactersRepository) :

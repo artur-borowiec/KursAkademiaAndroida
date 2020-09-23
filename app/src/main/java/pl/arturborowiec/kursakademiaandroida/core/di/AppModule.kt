@@ -1,24 +1,28 @@
 package pl.arturborowiec.kursakademiaandroida.core.di
 
+import android.content.Context
+import android.net.ConnectivityManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+import pl.arturborowiec.kursakademiaandroida.core.network.NetworkStateProvider
+import pl.arturborowiec.kursakademiaandroida.core.network.NetworkStateProviderImpl
 
 private const val GRID_COLUMNS_NUMBER = 2
 
 val appModule = module {
 
-    factory {
-        LinearLayoutManager(androidContext())
-    }
+    factory { LinearLayoutManager(androidContext()) }
+
+    factory { GridLayoutManager(androidContext(), GRID_COLUMNS_NUMBER) }
+
+    factory { DividerItemDecoration(androidContext(), LinearLayoutManager.VERTICAL) }
 
     factory {
-        GridLayoutManager(androidContext(), GRID_COLUMNS_NUMBER)
+        androidContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
 
-    factory {
-        DividerItemDecoration(androidContext(), LinearLayoutManager.VERTICAL)
-    }
+    factory<NetworkStateProvider> { NetworkStateProviderImpl(get()) }
 }

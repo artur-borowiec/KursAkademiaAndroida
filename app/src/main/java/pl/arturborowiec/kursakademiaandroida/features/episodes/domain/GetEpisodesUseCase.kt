@@ -1,6 +1,6 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.domain
 
-import pl.arturborowiec.kursakademiaandroida.base.UseCase
+import pl.arturborowiec.kursakademiaandroida.core.base.UseCase
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
 
 class GetEpisodesUseCase(private val episodesRepository: EpisodesRepository) :
