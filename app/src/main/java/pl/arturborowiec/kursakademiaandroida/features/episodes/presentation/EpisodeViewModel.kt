@@ -1,5 +1,6 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,10 +9,12 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.mode
 
 class EpisodeViewModel(private val getEpisodesUseCase: GetEpisodesUseCase) : ViewModel() {
 
-    val episodes by lazy {
+    private val _episodes by lazy {
         MutableLiveData<List<EpisodeDisplayable>>()
             .also { getEpisodes(it) }
     }
+
+    val episodes: LiveData<List<EpisodeDisplayable>> = _episodes
 
     private fun getEpisodes(episodeLiveData: MutableLiveData<List<EpisodeDisplayable>>) {
         getEpisodesUseCase(
