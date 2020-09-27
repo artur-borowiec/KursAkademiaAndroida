@@ -8,7 +8,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisode
 import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeFragment
 import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeViewModel
 
-val episodeModule =  module {
+val episodeModule = module {
 
     // data
     factory<EpisodesRepository> { EpisodesRepositoryImpl(get(), get(), get()) }
@@ -16,7 +16,7 @@ val episodeModule =  module {
     // domain
     factory { GetEpisodesUseCase(get()) }
 
-    //presentation
+    // presentation
     viewModel { EpisodeViewModel(get()) }
     factory { EpisodeFragment() }
 }

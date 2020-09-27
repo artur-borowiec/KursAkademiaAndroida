@@ -1,22 +1,22 @@
-package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
+package pl.arturborowiec.kursakademiaandroida.features.locations.presentation
 
 import androidx.lifecycle.observe
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
 import pl.arturborowiec.kursakademiaandroida.core.base.BaseFragment
 
-class EpisodeFragment : BaseFragment<EpisodeViewModel>(R.layout.fragment_episode) {
+class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_location) {
 
-    override val viewModel: EpisodeViewModel by viewModel()
+    override val viewModel: LocationViewModel by viewModel()
 
     override fun initViews() {
         super.initViews()
-        // init all view-related clasess
+        // init all view-related classes
     }
 
     override fun initObservers() {
         super.initObservers()
-        observeEpisodes()
+        observeLocations()
     }
 
     override fun onIdleState() {
@@ -29,9 +29,9 @@ class EpisodeFragment : BaseFragment<EpisodeViewModel>(R.layout.fragment_episode
         // handle pending state here
     }
 
-    private fun observeEpisodes() {
-        viewModel.episodes.observe(this) {
-            // TODO: code to display episodes
+    private fun observeLocations() {
+        viewModel.locations.observe(this) {
+            // TODO: code to display locations
         }
     }
 }
