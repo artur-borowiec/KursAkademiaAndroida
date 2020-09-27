@@ -51,18 +51,20 @@ ext {
     ]
 
 
-    def lifecycleViewmodelVersion = "2.2.0"
-    def lifecycleLivedataVersion = "2.2.0"
-    def lifecycleRuntimeVersion = "2.2.0"
     def lifecycleCommonVersion = "2.2.0"
+    def lifecycleExtensionsVersion = "2.2.0"
+    def lifecycleLivedataVersion = "2.2.0"
     def lifecycleLiveeventVersion = "1.2.0"
+    def lifecycleRuntimeVersion = "2.2.0"
+    def lifecycleViewmodelVersion = "2.2.0"
 
     lifecycleDependencies = [
-            lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:" + lifecycleViewmodelVersion,
-            lifecycleLivedata : "androidx.lifecycle:lifecycle-livedata-ktx:" + lifecycleLivedataVersion,
-            lifecycleRuntime  : "androidx.lifecycle:lifecycle-runtime-ktx:" + lifecycleRuntimeVersion,
-            lifecycleCommon   : "androidx.lifecycle:lifecycle-common-java8:" + lifecycleCommonVersion,
-            lifecycleLiveevent: "com.github.hadilq.liveevent:liveevent:" + lifecycleLiveeventVersion
+            lifecycleCommon    : "androidx.lifecycle:lifecycle-common-java8:" + lifecycleCommonVersion,
+            lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:" + lifecycleExtensionsVersion,
+            lifecycleLivedata  : "androidx.lifecycle:lifecycle-livedata-ktx:" + lifecycleLivedataVersion,
+            lifecycleLiveevent : "com.github.hadilq.liveevent:liveevent:" + lifecycleLiveeventVersion,
+            lifecycleRuntime   : "androidx.lifecycle:lifecycle-runtime-ktx:" + lifecycleRuntimeVersion,
+            lifecycleViewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:" + lifecycleViewmodelVersion,
     ]
 
 
@@ -84,7 +86,7 @@ ext {
 
     databaseDependencies = [
             roomRuntime: "androidx.room:room-runtime:" + roomRuntimeVersion,
-            roomKtx: "androidx.room:room-ktx:" + roomKtxVersion
+            roomKtx    : "androidx.room:room-ktx:" + roomKtxVersion
     ]
 
 
