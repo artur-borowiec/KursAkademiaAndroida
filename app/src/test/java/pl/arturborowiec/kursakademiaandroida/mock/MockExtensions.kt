@@ -9,6 +9,7 @@ import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Ch
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
 import pl.arturborowiec.kursakademiaandroida.features.locations.data.local.model.LocationCached
+import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 
 @TestOnly
 fun CharacterRemote.Companion.mock() = CharacterRemote(
@@ -115,6 +116,15 @@ fun EpisodeCached.Companion.mock() = EpisodeCached(
     characters = emptyList(),
     url = "episode url"
 )
+
+@TestOnly
+fun Location.Companion.mock() = Location(
+    id = 1,
+    dimension = "location dimension",
+    name = "location name",
+    residents = emptyList(),
+    type = "location type",
+    url = "location url")
 
 @TestOnly
 fun LocationRemote.Companion.mock() = LocationRemote(
