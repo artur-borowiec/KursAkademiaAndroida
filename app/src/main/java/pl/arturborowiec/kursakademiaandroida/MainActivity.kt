@@ -1,12 +1,20 @@
 package pl.arturborowiec.kursakademiaandroida
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import pl.arturborowiec.kursakademiaandroida.R
+import androidx.appcompat.app.AppCompatActivity
+import org.koin.android.ext.android.inject
+import pl.arturborowiec.kursakademiaandroida.features.characters.presentation.CharacterFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private val charactersFragment: CharacterFragment by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, charactersFragment)
+            .commit()
     }
 }

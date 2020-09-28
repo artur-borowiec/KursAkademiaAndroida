@@ -5,7 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import pl.arturborowiec.kursakademiaandroida.core.di.koinInjector
 
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()

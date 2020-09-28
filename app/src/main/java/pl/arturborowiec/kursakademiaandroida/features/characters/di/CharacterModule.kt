@@ -5,6 +5,7 @@ import org.koin.dsl.module
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.repository.CharactersRepositoryImpl
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.CharactersRepository
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.GetCharactersUseCase
+import pl.arturborowiec.kursakademiaandroida.features.characters.presentation.CharacterAdapter
 import pl.arturborowiec.kursakademiaandroida.features.characters.presentation.CharacterFragment
 import pl.arturborowiec.kursakademiaandroida.features.characters.presentation.CharacterViewModel
 
@@ -19,4 +20,5 @@ val characterModule = module {
     // presentation
     viewModel { CharacterViewModel(get()) }
     factory { CharacterFragment() }
+    factory { CharacterAdapter() }
 }

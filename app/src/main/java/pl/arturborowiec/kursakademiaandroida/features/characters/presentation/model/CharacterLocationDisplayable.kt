@@ -2,7 +2,7 @@ package pl.arturborowiec.kursakademiaandroida.features.characters.presentation.m
 
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.CharacterLocation
 
-data class CharacterLocationDisplayable (
+data class CharacterLocationDisplayable(
     val name: String,
     val url: String
 ) {

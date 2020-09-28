@@ -31,7 +31,7 @@ class EpisodesRepositoryImpl(
     private suspend fun saveEpisodesToLocal(episodes: List<Episode>) {
         episodes.map { EpisodeCached(it) }
             .toTypedArray()
-            .let { episodeDao.saveEpisodes(*it)}
+            .let { episodeDao.saveEpisodes(*it) }
     }
 
     private suspend fun getEpisodesFromLocal(): List<Episode> {

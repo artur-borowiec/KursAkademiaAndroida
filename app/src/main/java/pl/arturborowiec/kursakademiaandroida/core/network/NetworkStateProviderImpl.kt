@@ -5,7 +5,7 @@ import android.net.NetworkCapabilities
 
 class NetworkStateProviderImpl(
     private val connectivityManager: ConnectivityManager
-): NetworkStateProvider {
+) : NetworkStateProvider {
 
     override fun isNetworkAvailable(): Boolean {
         val capabilities =
