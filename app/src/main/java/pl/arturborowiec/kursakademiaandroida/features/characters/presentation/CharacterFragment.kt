@@ -3,6 +3,7 @@ package pl.arturborowiec.kursakademiaandroida.features.characters.presentation
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_character.*
+import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
@@ -20,7 +21,7 @@ class CharacterFragment : BaseFragment<CharacterViewModel>(R.layout.fragment_cha
     }
 
     private fun setupRecyclerView() {
-        rvCharacters.layoutManager = GridLayoutManager(requireContext(), 2)
+        rvCharacters.layoutManager = get<GridLayoutManager>()
         rvCharacters.adapter = adapter
     }
 
