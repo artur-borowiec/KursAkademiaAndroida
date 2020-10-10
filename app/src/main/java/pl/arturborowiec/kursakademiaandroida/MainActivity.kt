@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, locationFragment)
+            .replace(R.id.nav_host_fragment, episodeFragment)
             .commit()
     }
 }
