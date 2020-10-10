@@ -4,6 +4,8 @@ ext {
     def coreKtxVersion = "1.3.0"
 
     coreDependencies = [
+            fileTree : fileTree(dir: "libs", include: ["*.jar"]),
+            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
             appCompat: "androidx.appcompat:appcompat:" + appCompatVersion,
             coreKtx  : "androidx.core:core-ktx:" + coreKtxVersion
     ]
