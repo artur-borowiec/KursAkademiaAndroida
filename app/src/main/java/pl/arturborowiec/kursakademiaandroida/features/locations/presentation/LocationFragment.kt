@@ -1,6 +1,10 @@
 package pl.arturborowiec.kursakademiaandroida.features.locations.presentation
 
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.android.synthetic.main.fragment_location.*
+import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
 import pl.arturborowiec.kursakademiaandroida.core.base.BaseFragment
@@ -9,6 +13,18 @@ class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_locat
 
     override val viewModel: LocationViewModel by viewModel()
 
+    private val adapter: LocationAdapter by inject()
+
+    override fun initViews() {
+        super.initViews()
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        rvLocations.layoutManager = get<GridLayoutManager>()
+        rvLocations.adapter = adapter
+    }
+
     override fun initObservers() {
         super.initObservers()
         observeLocations()
@@ -16,7 +32,7 @@ class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_locat
 
     private fun observeLocations() {
         viewModel.locations.observe(this) {
-            // TODO: code to display locations
+            adapter.setLocations(it)
         }
     }
 }
