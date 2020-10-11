@@ -14,13 +14,14 @@ val networkModule = module {
     single<Interceptor> {
         HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-                else HttpLoggingInterceptor.Level.NONE
+            else HttpLoggingInterceptor.Level.NONE
         }
     }
 
     single {
         OkHttpClient.Builder()
             .addInterceptor(get<Interceptor>())
+            .build()
     }
 
     single {

@@ -17,7 +17,7 @@ class ListConverter {
         @TypeConverter
         @JvmStatic
         fun fromJson(json: String): List<String> {
-            return Gson().fromJson(json, object: TypeToken<List<String>>() {}.type)
+            return Gson().fromJson(json, object : TypeToken<List<String>>() {}.type)
         }
     }
 }
