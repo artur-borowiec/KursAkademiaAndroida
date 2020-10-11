@@ -16,6 +16,9 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
         if (episodes.isNotEmpty()) {
             this.episodes.clear()
         }
+
+        this.episodes.addAll(episodes)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
