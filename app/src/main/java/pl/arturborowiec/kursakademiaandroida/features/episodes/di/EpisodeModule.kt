@@ -12,7 +12,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.Epis
 val episodeModule = module {
 
     // data
-    factory<EpisodesRepository> { EpisodesRepositoryImpl(get(), get(), get()) }
+    factory<EpisodesRepository> { EpisodesRepositoryImpl(get(), get(), get(), get()) }
 
     // domain
     factory { GetEpisodesUseCase(get()) }
