@@ -12,13 +12,13 @@ import pl.arturborowiec.kursakademiaandroida.features.characters.presentation.Ch
 val characterModule = module {
 
     // data
-    factory<CharactersRepository> { CharactersRepositoryImpl(get(), get(), get()) }
+    factory<CharactersRepository> { CharactersRepositoryImpl(get(), get(), get(), get()) }
 
     // domain
     factory { GetCharactersUseCase(get()) }
 
     // presentation
-    viewModel { CharacterViewModel(get()) }
+    viewModel { CharacterViewModel(get(), get()) }
     factory { CharacterFragment() }
     factory { CharacterAdapter() }
 }

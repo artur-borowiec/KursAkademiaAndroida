@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorMapper
+import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorMapperImpl
 import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorWrapper
 import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorWrapperImpl
 import pl.arturborowiec.kursakademiaandroida.core.network.NetworkStateProvider
@@ -24,4 +26,5 @@ val appModule = module {
     }
     factory<NetworkStateProvider> { NetworkStateProviderImpl(get()) }
     factory<ErrorWrapper> { ErrorWrapperImpl() }
+    factory<ErrorMapper> { ErrorMapperImpl(androidContext()) }
 }
