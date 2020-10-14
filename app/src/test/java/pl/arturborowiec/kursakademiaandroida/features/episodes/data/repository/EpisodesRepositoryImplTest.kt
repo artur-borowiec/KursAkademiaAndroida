@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 import pl.arturborowiec.kursakademiaandroida.core.api.RickAndMortyApi
 import pl.arturborowiec.kursakademiaandroida.core.api.model.EpisodesResponse
+import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorWrapper
 import pl.arturborowiec.kursakademiaandroida.core.network.NetworkStateProvider
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.EpisodeDao
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
@@ -26,9 +27,10 @@ internal class EpisodesRepositoryImplTest {
         val networkStateProvider = mockk<NetworkStateProvider> {
             every { isNetworkAvailable() } returns true
         }
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
 
         val repository: EpisodesRepository =
-            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }
@@ -47,9 +49,10 @@ internal class EpisodesRepositoryImplTest {
         val networkStateProvider = mockk<NetworkStateProvider> {
             every { isNetworkAvailable() } returns true
         }
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
 
         val repository: EpisodesRepository =
-            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }
@@ -68,9 +71,10 @@ internal class EpisodesRepositoryImplTest {
         val networkStateProvider = mockk<NetworkStateProvider> {
             every { isNetworkAvailable() } returns false
         }
+        val errorWrapper = mockk<ErrorWrapper>(relaxed = true)
 
         val repository: EpisodesRepository =
-            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider)
+            EpisodesRepositoryImpl(api, episodeDao, networkStateProvider, errorWrapper)
 
         // when
         runBlocking { repository.getEpisodes() }
