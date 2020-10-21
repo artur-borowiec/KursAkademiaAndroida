@@ -1,6 +1,8 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.data.repository
 
 import pl.arturborowiec.kursakademiaandroida.core.api.RickAndMortyApi
+import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorWrapper
+import pl.arturborowiec.kursakademiaandroida.core.exception.callOrThrow
 import pl.arturborowiec.kursakademiaandroida.core.network.NetworkStateProvider
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.EpisodeDao
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
@@ -10,12 +12,13 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Epis
 class EpisodesRepositoryImpl(
     private val rickAndMortyApi: RickAndMortyApi,
     private val episodeDao: EpisodeDao,
-    private val networkStateProvider: NetworkStateProvider
+    private val networkStateProvider: NetworkStateProvider,
+    private val errorWrapper: ErrorWrapper
 ) : EpisodesRepository {
 
     override suspend fun getEpisodes(): List<Episode> {
         return if (networkStateProvider.isNetworkAvailable()) {
-            getEpisodesFromRemote()
+            callOrThrow(errorWrapper) { getEpisodesFromRemote() }
                 .also { saveEpisodesToLocal(it) }
         } else {
             getEpisodesFromLocal()

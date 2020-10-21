@@ -8,6 +8,7 @@ import io.mockk.verify
 import org.amshove.kluent.shouldBe
 import org.junit.jupiter.api.Test
 import pl.arturborowiec.kursakademiaandroida.core.base.UIState
+import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorMapper
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisodesUseCase
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
 import pl.arturborowiec.kursakademiaandroida.mock.mock
@@ -21,7 +22,8 @@ internal class EpisodeViewModelTest : ViewModelTest() {
     fun `WHEN episode live data is observed THEN set pending state`() {
         // given
         val useCase = mockk<GetEpisodesUseCase>(relaxed = true)
-        val viewModel = EpisodeViewModel(useCase)
+        val errorMapper = mockk<ErrorMapper>(relaxed = true)
+        val viewModel = EpisodeViewModel(useCase, errorMapper)
 
         // when
         viewModel.episodes.observeForTesting()
@@ -34,7 +36,8 @@ internal class EpisodeViewModelTest : ViewModelTest() {
     fun `WHEN episode live data is observed THEN invoke use case to get episodes`() {
         // given
         val useCase = mockk<GetEpisodesUseCase>(relaxed = true)
-        val viewModel = EpisodeViewModel(useCase)
+        val errorMapper = mockk<ErrorMapper>(relaxed = true)
+        val viewModel = EpisodeViewModel(useCase, errorMapper)
 
         // when
         viewModel.episodes.observeForTesting()
@@ -52,7 +55,8 @@ internal class EpisodeViewModelTest : ViewModelTest() {
                 lastArg<(Result<List<Episode>>) -> Unit>()(Result.success(episodes))
             }
         }
-        val viewModel = EpisodeViewModel(useCase)
+        val errorMapper = mockk<ErrorMapper>(relaxed = true)
+        val viewModel = EpisodeViewModel(useCase, errorMapper)
 
         // when
         viewModel.episodes.observeForTesting()
@@ -77,7 +81,10 @@ internal class EpisodeViewModelTest : ViewModelTest() {
             }
         }
         val observer = mockk<Observer<String>>(relaxed = true)
-        val viewModel = EpisodeViewModel(useCase)
+        val errorMapper = mockk<ErrorMapper> {
+            every { map(any()) } returns throwable.message!!
+        }
+        val viewModel = EpisodeViewModel(useCase, errorMapper)
 
         // when
         viewModel.message.observeForever(observer)
