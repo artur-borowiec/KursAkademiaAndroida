@@ -21,6 +21,7 @@
             android:id="@+id/action_navigate_from_episodes_screen_to_episode_details_screen"
             app:destination="@id/episode_details_screen"
             app:popUpTo="@id/episodes_screen" />
+
     </fragment>
 
     <fragment
