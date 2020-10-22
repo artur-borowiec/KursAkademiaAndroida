@@ -1,6 +1,5 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.navigation
 
-import androidx.core.os.bundleOf
 import pl.arturborowiec.kursakademiaandroida.R
 import pl.arturborowiec.kursakademiaandroida.core.navigation.FragmentNavigator
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
@@ -11,7 +10,7 @@ class EpisodeNavigatorImpl(private val fragmentNavigator: FragmentNavigator) : E
     override fun openEpisodeDetailScreen(episode: EpisodeDisplayable) {
         fragmentNavigator.navigateTo(
             R.id.action_navigate_from_episodes_screen_to_episode_details_screen,
-            bundleOf(EpisodeDetailsFragment.EPISODE_DETAILS_KEY to episode)
+            EpisodeDetailsFragment.EPISODE_DETAILS_KEY to episode
         )
     }
 
