@@ -13,6 +13,7 @@ class CharacterFragment : BaseFragment<CharacterViewModel>(R.layout.fragment_cha
 
     override val viewModel: CharacterViewModel by viewModel()
 
+    private val gridLayoutManager: GridLayoutManager by inject()
     private val adapter: CharacterAdapter by inject()
 
     override fun initViews() {
@@ -21,7 +22,7 @@ class CharacterFragment : BaseFragment<CharacterViewModel>(R.layout.fragment_cha
     }
 
     private fun setupRecyclerView() {
-        rvCharacters.layoutManager = get<GridLayoutManager>()
+        rvCharacters.layoutManager = gridLayoutManager
         rvCharacters.adapter = adapter
     }
 
@@ -34,5 +35,13 @@ class CharacterFragment : BaseFragment<CharacterViewModel>(R.layout.fragment_cha
         viewModel.characters.observe(this) {
             adapter.setCharacters(it)
         }
+    }
+
+    override fun onDestroyView() {
+        with(rvCharacters) {
+            layoutManager = null
+            adapter = null
+        }
+        super.onDestroyView()
     }
 }

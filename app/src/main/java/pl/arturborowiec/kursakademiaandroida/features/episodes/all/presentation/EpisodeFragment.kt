@@ -2,6 +2,7 @@ package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_episode.*
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
@@ -13,6 +14,7 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episod
 
     override val viewModel: EpisodesViewModel by viewModel()
 
+    private val gridLayoutManager: GridLayoutManager by inject()
     private val adapter: EpisodeAdapter by inject()
 
     override fun initViews() {
@@ -21,7 +23,7 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episod
     }
 
     private fun setupRecyclerView() {
-        rvEpisodes.layoutManager = get<GridLayoutManager>()
+        rvEpisodes.layoutManager = gridLayoutManager
         rvEpisodes.adapter = adapter
     }
 
@@ -34,5 +36,13 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episod
         viewModel.episodes.observe(this) {
             adapter.setEpisodes(it)
         }
+    }
+
+    override fun onDestroyView() {
+        with(rvEpisodes) {
+            layoutManager = null
+            adapter = null
+        }
+        super.onDestroyView()
     }
 }
