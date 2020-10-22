@@ -7,7 +7,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.EpisodesRe
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisodesUseCase
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeAdapter
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeFragment
-import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeViewModel
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodesViewModel
 
 val episodeModule = module {
 
@@ -18,7 +18,7 @@ val episodeModule = module {
     factory { GetEpisodesUseCase(get()) }
 
     // presentation
-    viewModel { EpisodeViewModel(get(), get()) }
+    viewModel { EpisodesViewModel(get(), get(), get()) }
     factory { EpisodeFragment() }
     factory { EpisodeAdapter() }
 }

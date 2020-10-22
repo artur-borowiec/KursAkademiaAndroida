@@ -10,7 +10,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Epis
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.episodes.navigation.EpisodeNavigator
 
-class EpisodeViewModel(
+class EpisodesViewModel(
     private val getEpisodesUseCase: GetEpisodesUseCase,
     private val episodeNavigator: EpisodeNavigator,
     errorMapper: ErrorMapper

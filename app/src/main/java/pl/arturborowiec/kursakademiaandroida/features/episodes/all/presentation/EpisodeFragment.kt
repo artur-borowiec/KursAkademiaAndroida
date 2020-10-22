@@ -9,9 +9,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
 import pl.arturborowiec.kursakademiaandroida.core.base.BaseFragment
 
-class EpisodeFragment : BaseFragment<EpisodeViewModel>(R.layout.fragment_episode) {
+class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episode) {
 
-    override val viewModel: EpisodeViewModel by viewModel()
+    override val viewModel: EpisodesViewModel by viewModel()
 
     private val adapter: EpisodeAdapter by inject()
 
