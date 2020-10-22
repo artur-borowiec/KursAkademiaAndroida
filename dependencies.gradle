@@ -1,7 +1,7 @@
 ext {
 
-    def appCompatVersion = "1.1.0"
-    def coreKtxVersion = "1.3.0"
+    def appCompatVersion = "1.2.0"
+    def coreKtxVersion = "1.3.1"
 
     coreDependencies = [
             fileTree : fileTree(dir: "libs", include: ["*.jar"]),
@@ -11,7 +11,7 @@ ext {
     ]
 
 
-    def constraintLayoutVersion = "1.1.3"
+    def constraintLayoutVersion = "2.0.0"
     def recyclerViewVersion = "1.1.0"
     def materialVersion = "1.1.0"
     def glideVersion = "4.11.0"
@@ -33,9 +33,9 @@ ext {
     ]
 
 
-    def koinVersion = "2.1.5"
-    def koinViewModelVersion = "2.1.5"
-    def koinScopeVersion = "2.1.5"
+    def koinVersion = "2.1.6"
+    def koinViewModelVersion = "2.1.6"
+    def koinScopeVersion = "2.1.6"
 
     diDependencies = [
             koin         : "org.koin:koin-android:" + koinVersion,
@@ -44,8 +44,8 @@ ext {
     ]
 
 
-    def coroutinesCoreVersion = "1.3.5"
-    def coroutinesAndroidVersion = "1.3.5"
+    def coroutinesCoreVersion = "1.3.9"
+    def coroutinesAndroidVersion = "1.3.9"
 
     coroutinesDependencies = [
             coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:" + coroutinesCoreVersion,
@@ -70,10 +70,10 @@ ext {
     ]
 
 
-    def retrofitVersion = "2.8.1"
-    def retrofitConverterVersion = "2.8.1"
-    def okHttpVersion = "4.6.0"
-    def okHttpInterceptorVersion = "4.6.0"
+    def retrofitVersion = "2.9.0"
+    def retrofitConverterVersion = "2.9.0"
+    def okHttpVersion = "4.9.0"
+    def okHttpInterceptorVersion = "4.9.0"
 
     networkDependencies = [
             retrofit         : "com.squareup.retrofit2:retrofit:" + retrofitVersion,
@@ -99,11 +99,11 @@ ext {
     ]
 
 
-    def mockkVersion = "1.10.0"
+    def mockkVersion = "1.10.2"
     def junitVersion = "4.13"
     def kluentVersion = "1.61"
-    def jupiterApiVersion = "5.6.2"
-    def jupiterParamsVersion = "5.6.2"
+    def jupiterApiVersion = "5.7.0"
+    def jupiterParamsVersion = "5.7.0"
 
     testDependencies = [
             mockk        : "io.mockk:mockk:" + mockkVersion,

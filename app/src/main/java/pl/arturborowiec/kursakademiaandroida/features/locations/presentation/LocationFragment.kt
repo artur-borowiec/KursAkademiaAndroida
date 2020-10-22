@@ -1,10 +1,7 @@
 package pl.arturborowiec.kursakademiaandroida.features.locations.presentation
 
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.fragment_episode.*
 import kotlinx.android.synthetic.main.fragment_location.*
-import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.R
