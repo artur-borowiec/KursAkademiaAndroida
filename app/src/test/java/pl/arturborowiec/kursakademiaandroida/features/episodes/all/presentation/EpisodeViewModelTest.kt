@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
+package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope

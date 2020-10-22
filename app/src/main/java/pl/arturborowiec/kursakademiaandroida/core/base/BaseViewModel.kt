@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.hadilq.liveevent.LiveEvent
 import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorMapper
 
-open class BaseViewModel(private val errorMapper: ErrorMapper) : ViewModel(), DefaultLifecycleObserver {
+open class BaseViewModel(private val errorMapper: ErrorMapper? = null) : ViewModel(), DefaultLifecycleObserver {
 
     private val _message by lazy { LiveEvent<String>() }
     val message: LiveData<String> by lazy { _message }
@@ -28,7 +28,8 @@ open class BaseViewModel(private val errorMapper: ErrorMapper) : ViewModel(), De
     }
 
     protected fun handleFailure(throwable: Throwable) {
-        val errorMessage = errorMapper.map(throwable)
-        showMessage(errorMessage)
+        errorMapper
+            ?.map(throwable)
+            ?.let{ showMessage(it) }
     }
 }

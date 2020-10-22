@@ -13,13 +13,24 @@
 
     <fragment
         android:id="@+id/episodes_screen"
-        android:name="pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeFragment"
+        android:name="pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeFragment"
         android:label="@string/title_episodes"
-        tools:layout="@layout/fragment_episode" />
+        tools:layout="@layout/fragment_episode">
+
+        <action
+            android:id="@+id/action_navigate_from_episodes_screen_to_episode_details_screen"
+            app:destination="@id/episode_details_screen"
+            app:popUpTo="@id/episodes_screen" />
+    </fragment>
 
     <fragment
         android:id="@+id/locations_screen"
         android:name="pl.arturborowiec.kursakademiaandroida.features.locations.presentation.LocationFragment"
         android:label="@string/title_locations"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/episode_details_screen"
+        android:name="pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsFragment"
+        android:label="@string/title_episode_details"
+        tools:layout="@layout/fragment_episode_details" />
 </navigation>

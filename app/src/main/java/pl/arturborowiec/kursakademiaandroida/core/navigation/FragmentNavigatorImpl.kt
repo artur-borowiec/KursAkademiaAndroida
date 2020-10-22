@@ -1,5 +1,6 @@
 package pl.arturborowiec.kursakademiaandroida.core.navigation
 
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
@@ -18,8 +19,8 @@ class FragmentNavigatorImpl(
         ?.findFragmentById(navHostFragmentRes)
         ?.findNavController()
 
-    override fun navigateTo(destinationId: Int) {
-        getNavController()?.navigate(destinationId)
+    override fun navigateTo(destinationId: Int, bundle: Bundle?) {
+        getNavController()?.navigate(destinationId, bundle)
     }
 
     override fun goBack(destinationId: Int?, inclusive: Boolean) {

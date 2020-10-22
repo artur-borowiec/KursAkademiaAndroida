@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
+package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager

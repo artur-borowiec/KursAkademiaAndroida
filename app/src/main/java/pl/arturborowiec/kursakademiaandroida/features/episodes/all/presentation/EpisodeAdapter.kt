@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.episodes.presentation
+package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_episode.view.*
 import pl.arturborowiec.kursakademiaandroida.R
-import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.model.EpisodeDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 
 class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 

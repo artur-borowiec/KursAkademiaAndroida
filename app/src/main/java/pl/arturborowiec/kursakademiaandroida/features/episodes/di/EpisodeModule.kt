@@ -5,9 +5,9 @@ import org.koin.dsl.module
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.repository.EpisodesRepositoryImpl
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.EpisodesRepository
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisodesUseCase
-import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeAdapter
-import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeFragment
-import pl.arturborowiec.kursakademiaandroida.features.episodes.presentation.EpisodeViewModel
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeAdapter
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeFragment
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeViewModel
 
 val episodeModule = module {
 
