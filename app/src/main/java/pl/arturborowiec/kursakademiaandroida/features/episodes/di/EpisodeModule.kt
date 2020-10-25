@@ -8,6 +8,9 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.GetEpisode
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeAdapter
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeFragment
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodesViewModel
+import pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsFragment
+import pl.arturborowiec.kursakademiaandroida.features.episodes.navigation.EpisodeNavigator
+import pl.arturborowiec.kursakademiaandroida.features.episodes.navigation.EpisodeNavigatorImpl
 
 val episodeModule = module {
 
@@ -17,8 +20,12 @@ val episodeModule = module {
     // domain
     factory { GetEpisodesUseCase(get()) }
 
+    // navigation
+    factory<EpisodeNavigator> { EpisodeNavigatorImpl(get()) }
+
     // presentation
     viewModel { EpisodesViewModel(get(), get(), get()) }
     factory { EpisodeFragment() }
+    factory { EpisodeDetailsFragment() }
     factory { EpisodeAdapter() }
 }
