@@ -1,7 +1,10 @@
-package pl.arturborowiec.kursakademiaandroida.features.characters.presentation.model
+package pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Character
 
+@Parcelize
 data class CharacterDisplayable(
     val episodes: List<String>,
     val gender: String,
@@ -14,7 +17,7 @@ data class CharacterDisplayable(
     val status: String,
     val type: String,
     val url: String
-) {
+) : Parcelable {
     constructor(character: Character) : this(
         episodes = character.episodes,
         gender = character.gender,
@@ -28,4 +31,6 @@ data class CharacterDisplayable(
         type = character.type,
         url = character.url
     )
+
+    companion object
 }

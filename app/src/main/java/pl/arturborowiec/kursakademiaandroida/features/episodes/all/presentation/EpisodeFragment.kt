@@ -20,6 +20,7 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel>(R.layout.fragment_episod
     }
 
     private fun setupRecyclerView() {
+        adapter.onEpisodeClickListener = { viewModel.onEpisodeClick(it) }
         rvEpisodes.layoutManager = gridLayoutManager
         rvEpisodes.adapter = adapter
     }

@@ -9,6 +9,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodeFragment
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.EpisodesViewModel
 import pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsFragment
+import pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsViewModel
 import pl.arturborowiec.kursakademiaandroida.features.episodes.navigation.EpisodeNavigator
 import pl.arturborowiec.kursakademiaandroida.features.episodes.navigation.EpisodeNavigatorImpl
 
@@ -26,6 +27,7 @@ val episodeModule = module {
     // presentation
     viewModel { EpisodesViewModel(get(), get(), get()) }
     factory { EpisodeFragment() }
+    viewModel { EpisodeDetailsViewModel() }
     factory { EpisodeDetailsFragment() }
     factory { EpisodeAdapter() }
 }

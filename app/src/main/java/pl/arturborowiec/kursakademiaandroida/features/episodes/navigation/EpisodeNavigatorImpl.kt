@@ -5,7 +5,9 @@ import pl.arturborowiec.kursakademiaandroida.core.navigation.FragmentNavigator
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsFragment
 
-class EpisodeNavigatorImpl(private val fragmentNavigator: FragmentNavigator) : EpisodeNavigator {
+class EpisodeNavigatorImpl(
+    private val fragmentNavigator: FragmentNavigator
+) : EpisodeNavigator {
 
     override fun openEpisodeDetailScreen(episode: EpisodeDisplayable) {
         fragmentNavigator.navigateTo(

@@ -8,5 +8,6 @@
     <string name="title_characters">Characters</string>
     <string name="title_episodes">Episodes</string>
     <string name="title_locations">Locations</string>
+    <string name="title_character_details">Character details</string>
     <string name="title_episode_details">Episode details</string>
 </resources>

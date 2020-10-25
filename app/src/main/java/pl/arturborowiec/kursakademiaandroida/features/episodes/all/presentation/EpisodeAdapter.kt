@@ -11,6 +11,7 @@ import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.
 class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 
     private val episodes by lazy { mutableListOf<EpisodeDisplayable>() }
+    lateinit var onEpisodeClickListener: (EpisodeDisplayable) -> Unit
 
     fun setEpisodes(episodes: List<EpisodeDisplayable>) {
         if (episodes.isNotEmpty()) {
@@ -31,16 +32,21 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
 
     override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
         val episode = episodes[position]
-        holder.bind(episode)
+        holder.bind(episode, onEpisodeClickListener)
     }
 
     override fun getItemCount(): Int = episodes.size
 
     class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(episode: EpisodeDisplayable) {
+        fun bind(
+            episode: EpisodeDisplayable,
+            onEpisodeClicked: (EpisodeDisplayable) -> Unit
+        ) {
             with(itemView) {
                 textView.text = episode.name
+
+                setOnClickListener { onEpisodeClicked.invoke(episode) }
             }
         }
     }

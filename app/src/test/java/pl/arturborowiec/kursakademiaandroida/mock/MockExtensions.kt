@@ -2,6 +2,9 @@ package pl.arturborowiec.kursakademiaandroida.mock
 
 import org.jetbrains.annotations.TestOnly
 import pl.arturborowiec.kursakademiaandroida.core.api.model.*
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterLocationDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterOriginDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterCached
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterLocationCached
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterOriginCached
@@ -30,13 +33,40 @@ fun Character.Companion.mock() = Character(
 )
 
 @TestOnly
+fun CharacterDisplayable.Companion.mock() = CharacterDisplayable(
+    id = 1,
+    episodes = emptyList(),
+    gender = "character gender",
+    image = "character image",
+    characterLocation = CharacterLocationDisplayable.mock(),
+    name = "character name",
+    characterOrigin = CharacterOriginDisplayable.mock(),
+    species = "character species",
+    status = "character status",
+    type = "character type",
+    url = "character url"
+)
+
+@TestOnly
 fun CharacterLocation.Companion.mock() = CharacterLocation(
     name = "character name",
     url = "character url"
 )
 
 @TestOnly
+fun CharacterLocationDisplayable.Companion.mock() = CharacterLocationDisplayable(
+    name = "character name",
+    url = "character url"
+)
+
+@TestOnly
 fun CharacterOrigin.Companion.mock() = CharacterOrigin(
+    name = "character name",
+    url = "character url"
+)
+
+@TestOnly
+fun CharacterOriginDisplayable.Companion.mock() = CharacterOriginDisplayable(
     name = "character name",
     url = "character url"
 )

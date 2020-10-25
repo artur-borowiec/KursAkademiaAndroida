@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.characters.presentation
+package pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation
 
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_character.*
@@ -20,6 +20,7 @@ class CharacterFragment : BaseFragment<CharacterViewModel>(R.layout.fragment_cha
     }
 
     private fun setupRecyclerView() {
+        adapter.onCharacterClickListener = { viewModel.onCharacterClick(it) }
         rvCharacters.layoutManager = gridLayoutManager
         rvCharacters.adapter = adapter
     }
