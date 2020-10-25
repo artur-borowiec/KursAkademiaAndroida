@@ -9,7 +9,7 @@
         android:id="@+id/characters_screen"
         android:name="pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.CharacterFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_character" >
+        tools:layout="@layout/fragment_character">
         <action
             android:id="@+id/action_navigate_from_characters_screen_to_character_details_screen"
             app:destination="@id/character_details_screen"
@@ -31,9 +31,14 @@
 
     <fragment
         android:id="@+id/locations_screen"
-        android:name="pl.arturborowiec.kursakademiaandroida.features.locations.presentation.LocationFragment"
+        android:name="pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation.LocationFragment"
         android:label="@string/title_locations"
-        tools:layout="@layout/fragment_location" />
+        tools:layout="@layout/fragment_location">
+        <action
+            android:id="@+id/action_navigate_from_locations_screen_to_location_details_screen"
+            app:destination="@id/locationDetailsFragment"
+            app:popUpTo="@id/locations_screen" />
+    </fragment>
     <fragment
         android:id="@+id/episode_details_screen"
         android:name="pl.arturborowiec.kursakademiaandroida.features.episodes.details.presentation.EpisodeDetailsFragment"
@@ -44,4 +49,9 @@
         android:name="pl.arturborowiec.kursakademiaandroida.features.characters.details.presentation.CharacterDetailsFragment"
         android:label="@string/title_character_details"
         tools:layout="@layout/fragment_character_details" />
+    <fragment
+        android:id="@+id/locationDetailsFragment"
+        android:name="pl.arturborowiec.kursakademiaandroida.features.locations.details.presentation.LocationDetailsFragment"
+        android:label="@string/title_location_details"
+        tools:layout="@layout/fragment_location_details" />
 </navigation>

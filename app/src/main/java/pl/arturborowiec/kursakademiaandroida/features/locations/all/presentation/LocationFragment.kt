@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.locations.presentation
+package pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation
 
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_location.*
@@ -20,6 +20,7 @@ class LocationFragment : BaseFragment<LocationViewModel>(R.layout.fragment_locat
     }
 
     private fun setupRecyclerView() {
+        adapter.onLocationClickListener = { viewModel.onLocationClick(it) }
         rvLocations.layoutManager = gridLayoutManager
         rvLocations.adapter = adapter
     }

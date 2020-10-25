@@ -1,4 +1,4 @@
-package pl.arturborowiec.kursakademiaandroida.features.locations.presentation
+package pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
@@ -7,10 +7,12 @@ import pl.arturborowiec.kursakademiaandroida.core.base.BaseViewModel
 import pl.arturborowiec.kursakademiaandroida.core.exception.ErrorMapper
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.GetLocationsUseCase
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
-import pl.arturborowiec.kursakademiaandroida.features.locations.presentation.model.LocationDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation.model.LocationDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.locations.navigation.LocationNavigator
 
 class LocationViewModel(
     private val getLocationsUseCase: GetLocationsUseCase,
+    private val locationNavigator: LocationNavigator,
     errorMapper: ErrorMapper
 ) : BaseViewModel(errorMapper) {
 
@@ -35,5 +37,9 @@ class LocationViewModel(
             result.onSuccess { locationLiveData.value = it }
             result.onFailure { handleFailure(it) }
         }
+    }
+
+    fun onLocationClick(location: LocationDisplayable) {
+        locationNavigator.openLocationDetailsScreen(location)
     }
 }

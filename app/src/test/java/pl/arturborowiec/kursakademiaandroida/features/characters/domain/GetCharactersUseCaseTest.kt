@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 internal class GetCharactersUseCaseTest {
 
     @Test
-    fun `when use case is invoked then getCharacters method from repository is executed`() {
+    fun `WHEN use case is invoked THEN getCharacters method from repository is executed`() {
         // given
         val repository = mockk<CharactersRepository>(relaxed = true)
         val useCase = GetCharactersUseCase(repository)

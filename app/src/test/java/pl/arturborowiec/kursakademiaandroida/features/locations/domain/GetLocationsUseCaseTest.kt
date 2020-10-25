@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 internal class GetLocationsUseCaseTest {
 
     @Test
-    fun `when use case is invoked then getLocations method from repository is executed`() {
+    fun `WHEN use case is invoked THEN getLocations method from repository is executed`() {
         //given
         val repository = mockk<LocationsRepository>(relaxed = true)
         val useCase = GetLocationsUseCase(repository)

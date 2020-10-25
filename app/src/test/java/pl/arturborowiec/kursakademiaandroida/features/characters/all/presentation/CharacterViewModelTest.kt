@@ -33,7 +33,7 @@ internal class CharacterViewModelTest : ViewModelTest() {
         viewModel.onCharacterClick(character)
 
         // then
-        verify { characterNavigator.openCharacterDetailScreen(character) }
+        verify { characterNavigator.openCharacterDetailsScreen(character) }
     }
 
     @Test

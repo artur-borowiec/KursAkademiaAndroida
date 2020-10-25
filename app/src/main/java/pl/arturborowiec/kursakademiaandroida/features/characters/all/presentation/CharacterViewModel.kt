@@ -40,6 +40,6 @@ class CharacterViewModel(
     }
 
     fun onCharacterClick(character: CharacterDisplayable) {
-        characterNavigator.openCharacterDetailScreen(character)
+        characterNavigator.openCharacterDetailsScreen(character)
     }
 }

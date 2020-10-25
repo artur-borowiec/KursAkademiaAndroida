@@ -14,6 +14,7 @@ import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Ch
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
+import pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation.model.LocationDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.locations.data.local.model.LocationCached
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 
@@ -189,6 +190,16 @@ fun EpisodeCached.Companion.mock() = EpisodeCached(
 
 @TestOnly
 fun Location.Companion.mock() = Location(
+    id = 1,
+    dimension = "location dimension",
+    name = "location name",
+    residents = emptyList(),
+    type = "location type",
+    url = "location url"
+)
+
+@TestOnly
+fun LocationDisplayable.Companion.mock() = LocationDisplayable(
     id = 1,
     dimension = "location dimension",
     name = "location name",

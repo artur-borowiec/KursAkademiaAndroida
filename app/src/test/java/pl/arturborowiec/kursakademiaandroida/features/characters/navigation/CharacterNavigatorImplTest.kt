@@ -21,7 +21,7 @@ internal class CharacterNavigatorImplTest {
         val slot = slot<Pair<String, CharacterDisplayable>>()
 
         // when
-        characterNavigator.openCharacterDetailScreen(character)
+        characterNavigator.openCharacterDetailsScreen(character)
 
         // then
         verify {
