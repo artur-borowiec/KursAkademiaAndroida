@@ -2,14 +2,19 @@ package pl.arturborowiec.kursakademiaandroida.mock
 
 import org.jetbrains.annotations.TestOnly
 import pl.arturborowiec.kursakademiaandroida.core.api.model.*
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterLocationDisplayable
+import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterOriginDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterCached
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterLocationCached
 import pl.arturborowiec.kursakademiaandroida.features.characters.data.local.model.CharacterOriginCached
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Character
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.CharacterLocation
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.CharacterOrigin
+import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.episodes.data.local.model.EpisodeCached
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
+import pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation.model.LocationDisplayable
 import pl.arturborowiec.kursakademiaandroida.features.locations.data.local.model.LocationCached
 import pl.arturborowiec.kursakademiaandroida.features.locations.domain.model.Location
 
@@ -29,13 +34,40 @@ fun Character.Companion.mock() = Character(
 )
 
 @TestOnly
+fun CharacterDisplayable.Companion.mock() = CharacterDisplayable(
+    id = 1,
+    episodes = emptyList(),
+    gender = "character gender",
+    image = "character image",
+    characterLocation = CharacterLocationDisplayable.mock(),
+    name = "character name",
+    characterOrigin = CharacterOriginDisplayable.mock(),
+    species = "character species",
+    status = "character status",
+    type = "character type",
+    url = "character url"
+)
+
+@TestOnly
 fun CharacterLocation.Companion.mock() = CharacterLocation(
     name = "character name",
     url = "character url"
 )
 
 @TestOnly
+fun CharacterLocationDisplayable.Companion.mock() = CharacterLocationDisplayable(
+    name = "character name",
+    url = "character url"
+)
+
+@TestOnly
 fun CharacterOrigin.Companion.mock() = CharacterOrigin(
+    name = "character name",
+    url = "character url"
+)
+
+@TestOnly
+fun CharacterOriginDisplayable.Companion.mock() = CharacterOriginDisplayable(
     name = "character name",
     url = "character url"
 )
@@ -116,6 +148,16 @@ fun Episode.Companion.mock() = Episode(
 )
 
 @TestOnly
+fun EpisodeDisplayable.Companion.mock() = EpisodeDisplayable(
+    id = 1,
+    name = "episode name",
+    airDate = "episode air date",
+    code = "episode code",
+    characters = emptyList(),
+    url = "episode url"
+)
+
+@TestOnly
 fun EpisodeRemote.Companion.mock() = EpisodeRemote(
     id = 1,
     name = "episode name",
@@ -148,6 +190,16 @@ fun EpisodeCached.Companion.mock() = EpisodeCached(
 
 @TestOnly
 fun Location.Companion.mock() = Location(
+    id = 1,
+    dimension = "location dimension",
+    name = "location name",
+    residents = emptyList(),
+    type = "location type",
+    url = "location url"
+)
+
+@TestOnly
+fun LocationDisplayable.Companion.mock() = LocationDisplayable(
     id = 1,
     dimension = "location dimension",
     name = "location name",
