@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_episode.view.*
 import pl.arturborowiec.kursakademiaandroida.R
+import pl.arturborowiec.kursakademiaandroida.databinding.ItemEpisodeBinding
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 
 class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
@@ -37,16 +38,17 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
 
     override fun getItemCount(): Int = episodes.size
 
-    class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val binding = ItemEpisodeBinding.bind(itemView)
 
         fun bind(
             episode: EpisodeDisplayable,
             onEpisodeClicked: (EpisodeDisplayable) -> Unit
         ) {
-            with(itemView) {
+            with(binding) {
                 textView.text = episode.name
 
-                setOnClickListener { onEpisodeClicked.invoke(episode) }
+                root.setOnClickListener { onEpisodeClicked.invoke(episode) }
             }
         }
     }
