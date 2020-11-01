@@ -1,11 +1,8 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_episode.view.*
-import pl.arturborowiec.kursakademiaandroida.R
 import pl.arturborowiec.kursakademiaandroida.databinding.ItemEpisodeBinding
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 
@@ -13,6 +10,17 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
 
     private val episodes by lazy { mutableListOf<EpisodeDisplayable>() }
     lateinit var onEpisodeClickListener: (EpisodeDisplayable) -> Unit
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemEpisodeBinding.inflate(inflater, parent, false)
+        return EpisodeViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
+        val episode = episodes[position]
+        holder.bind(episode, onEpisodeClickListener)
+    }
 
     fun setEpisodes(episodes: List<EpisodeDisplayable>) {
         if (episodes.isNotEmpty()) {
@@ -23,32 +31,19 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
-        val itemView = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_episode, parent, false)
-
-        return EpisodeViewHolder(itemView)
-    }
-
-    override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
-        val episode = episodes[position]
-        holder.bind(episode, onEpisodeClickListener)
-    }
-
     override fun getItemCount(): Int = episodes.size
 
-    inner class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemEpisodeBinding.bind(itemView)
+    inner class EpisodeViewHolder(private val binding: ItemEpisodeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             episode: EpisodeDisplayable,
             onEpisodeClicked: (EpisodeDisplayable) -> Unit
         ) {
             with(binding) {
-                textView.text = episode.name
-
+                item = episode
                 root.setOnClickListener { onEpisodeClicked.invoke(episode) }
+                executePendingBindings()
             }
         }
     }
