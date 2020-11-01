@@ -28,16 +28,6 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel, FragmentEpisodeBinding>(
         observeEpisodes()
     }
 
-    override fun onIdleState() {
-        super.onIdleState()
-        binding?.pbEpisodes?.visibility = View.GONE
-    }
-
-    override fun onPendingState() {
-        super.onPendingState()
-        binding?.pbEpisodes?.visibility = View.VISIBLE
-    }
-
     private fun observeEpisodes() {
         viewModel.episodes.observe(this) {
             adapter.setEpisodes(it)

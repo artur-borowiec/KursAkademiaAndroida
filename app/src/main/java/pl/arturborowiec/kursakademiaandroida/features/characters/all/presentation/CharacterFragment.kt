@@ -38,16 +38,6 @@ class CharacterFragment : BaseFragment<CharacterViewModel, FragmentCharacterBind
         observeCharacters()
     }
 
-    override fun onIdleState() {
-        super.onIdleState()
-        binding?.pbCharacters?.visibility = View.GONE
-    }
-
-    override fun onPendingState() {
-        super.onPendingState()
-        binding?.pbCharacters?.visibility = View.VISIBLE
-    }
-
     private fun observeCharacters() {
         viewModel.characters.observe(this) {
             adapter.setCharacters(it)

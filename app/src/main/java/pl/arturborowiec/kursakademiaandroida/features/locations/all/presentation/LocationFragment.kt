@@ -38,16 +38,6 @@ class LocationFragment : BaseFragment<LocationViewModel, FragmentLocationBinding
         observeLocations()
     }
 
-    override fun onIdleState() {
-        super.onIdleState()
-        binding?.progressBar?.visibility = View.GONE
-    }
-
-    override fun onPendingState() {
-        super.onPendingState()
-        binding?.progressBar?.visibility = View.VISIBLE
-    }
-
     private fun observeLocations() {
         viewModel.locations.observe(this) {
             adapter.setLocations(it)
