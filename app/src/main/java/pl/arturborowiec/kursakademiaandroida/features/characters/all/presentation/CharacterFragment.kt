@@ -1,6 +1,5 @@
 package pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation
 
-import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_character.*
 import org.koin.android.ext.android.inject
@@ -31,17 +30,6 @@ class CharacterFragment : BaseFragment<CharacterViewModel, FragmentCharacterBind
     override fun initViews(binding: FragmentCharacterBinding) {
         super.initViews(binding)
         setupRecyclerView()
-    }
-
-    override fun initObservers() {
-        super.initObservers()
-        observeCharacters()
-    }
-
-    private fun observeCharacters() {
-        viewModel.characters.observe(this) {
-            adapter.setCharacters(it)
-        }
     }
 
     private fun setupRecyclerView() {

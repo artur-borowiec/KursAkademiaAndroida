@@ -1,6 +1,5 @@
 package pl.arturborowiec.kursakademiaandroida.features.locations.all.presentation
 
-import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_location.*
 import org.koin.android.ext.android.inject
@@ -31,17 +30,6 @@ class LocationFragment : BaseFragment<LocationViewModel, FragmentLocationBinding
     override fun initViews(binding: FragmentLocationBinding) {
         super.initViews(binding)
         setupRecyclerView()
-    }
-
-    override fun initObservers() {
-        super.initObservers()
-        observeLocations()
-    }
-
-    private fun observeLocations() {
-        viewModel.locations.observe(this) {
-            adapter.setLocations(it)
-        }
     }
 
     private fun setupRecyclerView() {

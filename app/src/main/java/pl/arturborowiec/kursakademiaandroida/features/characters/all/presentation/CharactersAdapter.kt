@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_character.view.*
+import pl.arturborowiec.kursakademiaandroida.core.adapter.BindableAdapter
 import pl.arturborowiec.kursakademiaandroida.databinding.ItemCharacterBinding
-import pl.arturborowiec.kursakademiaandroida.databinding.ItemEpisodeBinding
 import pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterDisplayable
 
-class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharacterAdapter : BindableAdapter<CharacterDisplayable>,
+    RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     private val characters by lazy { mutableListOf<CharacterDisplayable>() }
     lateinit var onCharacterClickListener: (CharacterDisplayable) -> Unit
@@ -25,12 +25,12 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         holder.bind(character, onCharacterClickListener)
     }
 
-    fun setCharacters(characters: List<CharacterDisplayable>) {
-        if (characters.isNotEmpty()) {
+    override fun setItems(items: List<CharacterDisplayable>) {
+        if (items.isNotEmpty()) {
             this.characters.clear()
         }
 
-        this.characters.addAll(characters)
+        this.characters.addAll(items)
         notifyDataSetChanged()
     }
 

@@ -3,10 +3,12 @@ package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import pl.arturborowiec.kursakademiaandroida.core.adapter.BindableAdapter
 import pl.arturborowiec.kursakademiaandroida.databinding.ItemEpisodeBinding
 import pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation.model.EpisodeDisplayable
 
-class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
+class EpisodeAdapter : BindableAdapter<EpisodeDisplayable>,
+    RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() {
 
     private val episodes by lazy { mutableListOf<EpisodeDisplayable>() }
     lateinit var onEpisodeClickListener: (EpisodeDisplayable) -> Unit
@@ -22,12 +24,12 @@ class EpisodeAdapter : RecyclerView.Adapter<EpisodeAdapter.EpisodeViewHolder>() 
         holder.bind(episode, onEpisodeClickListener)
     }
 
-    fun setEpisodes(episodes: List<EpisodeDisplayable>) {
-        if (episodes.isNotEmpty()) {
+    override fun setItems(items: List<EpisodeDisplayable>) {
+        if (items.isNotEmpty()) {
             this.episodes.clear()
         }
 
-        this.episodes.addAll(episodes)
+        this.episodes.addAll(items)
         notifyDataSetChanged()
     }
 
