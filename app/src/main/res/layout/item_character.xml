@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="pl.arturborowiec.kursakademiaandroida.R" />
+
         <variable
             name="item"
             type="pl.arturborowiec.kursakademiaandroida.features.characters.all.presentation.model.CharacterDisplayable" />
@@ -18,10 +20,12 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
+            app:imageUrl="@{item.image}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:placeholder="@{R.drawable.ic_launcher_foreground}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

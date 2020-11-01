@@ -45,11 +45,6 @@ class CharacterAdapter : BindableAdapter<CharacterDisplayable>,
         ) {
             with(binding) {
                 item = character
-
-                Glide.with(this.root)
-                    .load(character.image)
-                    .into(imageView)
-
                 root.setOnClickListener { onCharacterClicked.invoke(character) }
                 executePendingBindings()
             }
