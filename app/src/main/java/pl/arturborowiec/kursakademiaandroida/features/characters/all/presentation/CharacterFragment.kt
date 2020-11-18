@@ -29,14 +29,12 @@ class CharacterFragment : BaseFragment<CharacterViewModel, FragmentCharacterBind
 
     override fun initViews(binding: FragmentCharacterBinding) {
         super.initViews(binding)
-        setupRecyclerView()
+        setupRecyclerView(binding)
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerView(binding: FragmentCharacterBinding) {
         adapter.onCharacterClickListener = { viewModel.onCharacterClick(it) }
-        binding?.let {
-            rvCharacters.layoutManager = gridLayoutManager
-            rvCharacters.adapter = adapter
-        }
+        binding.rvCharacters.layoutManager = gridLayoutManager
+        binding.rvCharacters.adapter = adapter
     }
 }

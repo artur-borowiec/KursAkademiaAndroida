@@ -1,6 +1,5 @@
 package pl.arturborowiec.kursakademiaandroida.features.episodes.all.presentation
 
-import kotlinx.android.synthetic.main.fragment_episode.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.arturborowiec.kursakademiaandroida.BR
@@ -19,13 +18,11 @@ class EpisodeFragment : BaseFragment<EpisodesViewModel, FragmentEpisodeBinding>(
 
     override fun initViews(binding: FragmentEpisodeBinding) {
         super.initViews(binding)
-        setupRecyclerView()
+        setupRecyclerView(binding)
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerView(binding: FragmentEpisodeBinding) {
         adapter.onEpisodeClickListener = { viewModel.onEpisodeClick(it) }
-        binding?.let {
-            rvEpisodes.adapter = adapter
-        }
+        binding.rvEpisodes.adapter = adapter
     }
 }

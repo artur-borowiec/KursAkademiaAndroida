@@ -29,14 +29,12 @@ class LocationFragment : BaseFragment<LocationViewModel, FragmentLocationBinding
 
     override fun initViews(binding: FragmentLocationBinding) {
         super.initViews(binding)
-        setupRecyclerView()
+        setupRecyclerView(binding)
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerView(binding: FragmentLocationBinding) {
         adapter.onLocationClickListener = { viewModel.onLocationClick(it) }
-        binding?.let {
-            rvLocations.layoutManager = gridLayoutManager
-            rvLocations.adapter = adapter
-        }
+        binding.rvLocations.layoutManager = gridLayoutManager
+        binding.rvLocations.adapter = adapter
     }
 }

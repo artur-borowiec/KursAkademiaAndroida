@@ -23,8 +23,8 @@ data class EpisodeDisplayable(
         url = episode.url
     )
 
-    @IgnoredOnParcel
-    val fullName = "$code $name"
+    val fullName
+        get() = "$code $name"
 
     companion object
 }
