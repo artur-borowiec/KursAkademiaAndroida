@@ -33,6 +33,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -44,8 +49,6 @@ dependencies {
     implementation lifecycleDependencies.values()
     implementation networkDependencies.values()
     implementation databaseDependencies.values()
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     kapt kaptDependencies.values()
 

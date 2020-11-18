@@ -4,6 +4,7 @@
     <string name="error_internal">Houston, we have a server-side problem. Try again in a few minutes.</string>
     <string name="error_bad_request">Validation error. Please check your input parameters.</string>
     <string name="error_unknown">Oops… Something went wrong</string>
+    <string name="locations_number_label">Locations number: %s</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_characters">Characters</string>
     <string name="title_episodes">Episodes</string>
