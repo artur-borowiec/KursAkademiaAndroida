@@ -1,11 +1,13 @@
 package pl.arturborowiec.kursakademiaandroida.core.api.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.CharacterOrigin
 
+@JsonClass(generateAdapter = true)
 data class CharacterOriginRemote(
-    @SerializedName("name") val name: String,
-    @SerializedName("url") val url: String
+    @Json(name = "name") val name: String,
+    @Json(name = "url") val url: String
 ) {
     companion object
 

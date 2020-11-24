@@ -1,13 +1,15 @@
 package pl.arturborowiec.kursakademiaandroida.core.api.model
 
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class ResponseInfo(
-    @SerializedName("count") val count: Int,
-    @SerializedName("pages") val pages: Int,
-    @SerializedName("next") val next: String?,
-    @SerializedName("prev") val prev: String?
+    @Json(name = "count") val count: Int,
+    @Json(name = "pages") val pages: Int,
+    @Json(name = "next") val next: String?,
+    @Json(name = "prev") val prev: String?
 ) {
     companion object
 }

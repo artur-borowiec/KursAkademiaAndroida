@@ -1,21 +1,23 @@
 package pl.arturborowiec.kursakademiaandroida.core.api.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import pl.arturborowiec.kursakademiaandroida.features.characters.domain.model.Character
 
+@JsonClass(generateAdapter = true)
 data class CharacterRemote(
-    @SerializedName("id") val id: Int,
-    @SerializedName("episode") val episodes: List<String>,
-    @SerializedName("gender") val gender: String,
-    @SerializedName("image") val image: String,
-    @SerializedName("location") val location: CharacterLocationRemote,
-    @SerializedName("name") val name: String,
-    @SerializedName("origin") val origin: CharacterOriginRemote,
-    @SerializedName("species") val species: String,
-    @SerializedName("status") val status: String,
-    @SerializedName("type") val type: String,
-    @SerializedName("url") val url: String,
-    @SerializedName("created") val created: String
+    @Json(name = "id") val id: Int,
+    @Json(name = "episode") val episodes: List<String>,
+    @Json(name = "gender") val gender: String,
+    @Json(name = "image") val image: String,
+    @Json(name = "location") val location: CharacterLocationRemote,
+    @Json(name = "name") val name: String,
+    @Json(name = "origin") val origin: CharacterOriginRemote,
+    @Json(name = "species") val species: String,
+    @Json(name = "status") val status: String,
+    @Json(name = "type") val type: String,
+    @Json(name = "url") val url: String,
+    @Json(name = "created") val created: String
 ) {
     companion object
 
