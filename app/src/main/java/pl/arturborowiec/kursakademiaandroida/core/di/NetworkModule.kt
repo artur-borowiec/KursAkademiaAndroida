@@ -9,7 +9,6 @@ import org.koin.android.BuildConfig
 import org.koin.dsl.module
 import pl.arturborowiec.kursakademiaandroida.core.api.RickAndMortyApi
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 const val API_URL = "https://rickandmortyapi.com/api/"

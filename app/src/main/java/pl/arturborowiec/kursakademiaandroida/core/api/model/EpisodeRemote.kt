@@ -1,6 +1,5 @@
 package pl.arturborowiec.kursakademiaandroida.core.api.model
 
-import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import pl.arturborowiec.kursakademiaandroida.features.episodes.domain.model.Episode
