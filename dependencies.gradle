@@ -74,12 +74,16 @@ ext {
     def retrofitConverterVersion = "2.9.0"
     def okHttpVersion = "4.9.0"
     def okHttpInterceptorVersion = "4.9.0"
+    def moshiVersion = "1.11.0"
+    def moshiConverterVersion = "2.9.0"
 
     networkDependencies = [
             retrofit         : "com.squareup.retrofit2:retrofit:" + retrofitVersion,
             retrofitConverter: "com.squareup.retrofit2:converter-gson:" + retrofitConverterVersion,
             okHttp           : "com.squareup.okhttp3:okhttp:" + okHttpVersion,
-            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:" + okHttpInterceptorVersion
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:" + okHttpInterceptorVersion,
+            moshi            : "com.squareup.moshi:moshi-kotlin:" + moshiVersion,
+            moshiConverter   : "com.squareup.retrofit2:converter-moshi:" + moshiConverterVersion
     ]
 
 
